@@ -1,0 +1,105 @@
+
+:root{
+    --background: #065143;
+    --midground: #1c2541;
+    --foreground: #129490;
+    --text: #70B77E;
+}
+
+html {
+    background-color: var(--background);
+    overflow:hidden;
+}
+
+button {
+    box-shadow: none;
+    background-color: var(--text);
+}
+
+@keyframes shrink {
+    from {
+        height: 250px;
+        width: 250px;
+        background-color: transparent;
+    }
+    to {
+        height: 130px;
+        width: 130px;
+        background-color: var(--foreground);
+    }
+}
+
+@keyframes expand {
+    from {
+        height: 130px;
+        width: 130px;
+        background-color: var(--foreground);
+    }
+    to {
+        height: 250px;
+        width: 250px;
+        background-color: transparent;
+    }
+}
+
+.anim_dot {
+    height: 130px;
+    width: 130px;
+    background-color: var(--foreground);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    animation-duration: 0.8s;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    overflow:hidden;
+}
+
+.dot {
+    height: 130px;
+    width: 130px;
+    background-color: var(--midground);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.centre {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.timer{
+    color: var(--text);
+    font-size: 3em;
+    text-align: center;
+    width: 120px;
+    background-color: transparent;
+    border: transparent;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
