@@ -1,0 +1,10 @@
+{
+    "name": "Focus Timer",
+    "version": "1.0",
+    "description": "A timer to let you know when to stop focusing",
+    "manifest_version": 3,
+    "author": "Lincoln Murray",
+    "action":{
+        "default_popup": "index.html"
+    }
+}
