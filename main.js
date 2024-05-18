@@ -1,5 +1,6 @@
-time = 600
+
 playing = false
+time = 600
 prev_time = -600
 
 function start(){
@@ -21,6 +22,7 @@ function start(){
 
 function end(){
     time = collect_input()
+    document.cookie = 'time =' + String(time)
     playing = false
     update_time(time)
 }
@@ -51,8 +53,8 @@ function collect_input(){
     return seconds
 }
 
-function update_time(_temp_time){
-    if (playing === false){
+function update_time(_temp_time, _skip = false){
+    if (playing === false && _skip === false){
         document.getElementById('title').textContent = 'Focus Timer- Paused'
     }
     else{
@@ -128,6 +130,17 @@ document.addEventListener('focus', (evt) => {
         document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
         end()
     }
+});
+
+
+addEventListener('DOMContentLoaded', (evt) => {
+    console.log('loaded')
+    if (document.cookie != ''){
+        console.log(document.cookie)
+        time = parseInt(document.cookie.split('=')[1])
+        console.log(time)
+    }
+    update_time(time, true)
 });
 
 /*
