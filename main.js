@@ -22,7 +22,6 @@ function start(){
 
 function end(){
     time = collect_input()
-    document.cookie = 'time =' + String(time)
     playing = false
     update_time(time)
 }
@@ -50,6 +49,7 @@ function collect_input(){
             seconds += parseInt(input_array[input_array.length-3],10) * 3600
         }
     }
+    document.cookie = 'time=' + String(time) +';playing=' + playing
     return seconds
 }
 
@@ -89,6 +89,15 @@ function update_time(_temp_time, _skip = false){
             }
             document.getElementById('timer').value = time_string
             document.getElementById('title').textContent = 'Focus Timer- ' + time_string
+        }
+    }
+}
+
+function get_cookie(_name){
+    cookies = document.cookie.split(';')
+    for (cookie in cookies){
+        if (cookie.split('=')[0] == _name){
+            return cookie.split('=')[1]
         }
     }
 }
@@ -135,12 +144,16 @@ document.addEventListener('focus', (evt) => {
 
 addEventListener('DOMContentLoaded', (evt) => {
     console.log('loaded')
-    if (document.cookie != ''){
-        console.log(document.cookie)
-        time = parseInt(document.cookie.split('=')[1])
+    if (get_cookie('time') != undefined){
+        console.log(get_cookie('time'))
+        time = parseInt(get_cookie('time'))
+        playing = Boolean(get_cookie('playing'))
         console.log(time)
     }
     update_time(time, true)
+    if (playing === true){
+        pause_unpause()
+    }
 });
 
 /*
